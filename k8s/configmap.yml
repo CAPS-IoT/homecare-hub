@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homecare-hub-configmap
+  labels:
+    app: homecare-hub
+data:
+  VIZ_REMOTE: http://viz-backend.sif:9000
