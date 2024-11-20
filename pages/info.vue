@@ -2,42 +2,40 @@
   <div style="height: 100%;">
     <NuxtLayout name="table">
       <template #mainContent>
-        <div>
-          <PrimeDataTable sortField="timestamp" :sortOrder="-1" v-model:expandedRows="expandedRows" :value="infos"
-            scrollable scrollHeight="100%"
-            :pt="{ root: { style: 'overflow: hidden; height: 100%; max-height: 100%;' }, tableContainer: { style: 'overflow: auto; height: calc(100% - 30px); max-height: 100%;' } }">
-            <template #header>
-              <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="text-xl font-bold">Latest Information</span>
-              </div>
+        <PrimeDataTable sortField="timestamp" :sortOrder="-1" v-model:expandedRows="expandedRows" :value="infos"
+          scrollable scrollHeight="100%"
+          :pt="{ root: { style: 'overflow: hidden; height: 100%; max-height: 100%;' }, tableContainer: { style: 'overflow: auto; height: calc(100% - 30px); max-height: 100%;' } }">
+          <template #header>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xl font-bold">Latest Information</span>
+            </div>
+          </template>
+          <PrimeColumn expander style="width: 5rem;" />
+          <PrimeColumn field="timestamp" header="Time" style="width: 20%;">
+            <template #body="slotProps">
+              {{ translateDate(slotProps.data.timestamp) }}
             </template>
-            <PrimeColumn expander style="width: 5rem;" />
-            <PrimeColumn field="timestamp" header="Time" style="width: 20%;">
-              <template #body="slotProps">
-                {{ translateDate(slotProps.data.timestamp) }}
-              </template>
-            </PrimeColumn>
-            <PrimeColumn field="summary" header="Summary" style="width: 60%;"></PrimeColumn>
-            <PrimeColumn field="level" header="Severity" style="width: 20%; text-align: center;"
-              :pt="{ columnHeaderContent: { style: 'justify-content: center;' } }">
-              <template #body="slotProps">
-                <PrimeTag :value="translateLevel(slotProps.data.level)"
-                  :severity="translateSeverity(slotProps.data.level)" />
-              </template>
-            </PrimeColumn>
-            <PrimeColumn style="width: 5rem;" header="Action">
-              <template #body="slotProps">
-                <PrimeButton class="pi pi-trash" @click="deleteInfo(slotProps.data.timestamp)"
-                  :pt="{ label: { style: 'display: none;' }, root: { style: 'width: 100%;' } }" />
-              </template>
-            </PrimeColumn>
-            <template #expansion="slotProps">
-              <h5> More details </h5>
-              <p>{{ slotProps.data.detail }} </p>
+          </PrimeColumn>
+          <PrimeColumn field="summary" header="Summary" style="width: 60%;"></PrimeColumn>
+          <PrimeColumn field="level" header="Severity" style="width: 20%; text-align: center;"
+            :pt="{ columnHeaderContent: { style: 'justify-content: center;' } }">
+            <template #body="slotProps">
+              <PrimeTag :value="translateLevel(slotProps.data.level)"
+                :severity="translateSeverity(slotProps.data.level)" />
             </template>
+          </PrimeColumn>
+          <PrimeColumn style="width: 5rem;" header="Action">
+            <template #body="slotProps">
+              <PrimeButton class="pi pi-trash" @click="deleteInfo(slotProps.data.timestamp)"
+                :pt="{ label: { style: 'display: none;' }, root: { style: 'width: 100%;' } }" />
+            </template>
+          </PrimeColumn>
+          <template #expansion="slotProps">
+            <h5> More details </h5>
+            <p>{{ slotProps.data.detail }} </p>
+          </template>
 
-          </PrimeDataTable>
-        </div>
+        </PrimeDataTable>
       </template>
     </NuxtLayout>
   </div>
