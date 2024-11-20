@@ -4,7 +4,7 @@
       <template #mainContent>
         <div>
           <PrimeDataTable sortField="timestamp" :sortOrder="-1" v-model:expandedRows="expandedRows" :value="infos"
-            dataKey="timestamp" scrollable scrollHeight="100%"
+            scrollable scrollHeight="100%"
             :pt="{ root: { style: 'overflow: hidden; height: 100%; max-height: 100%;' }, tableContainer: { style: 'overflow: auto; height: calc(100% - 30px); max-height: 100%;' } }">
             <template #header>
               <div class="flex flex-wrap items-center justify-between gap-2">

@@ -3,7 +3,7 @@
     <NuxtLayout name="table">
       <template #mainContent>
         <PrimeDataTable sortField="level" scrollable scrollHeight="100%" :sortOrder="-1"
-          v-model:expandedRows="expandedRows" :value="todos" dataKey="timestamp"
+          v-model:expandedRows="expandedRows" :value="todos"
           :pt="{ root: { style: 'overflow: hidden; height: 100%; max-height: 100%;' }, tableContainer: { style: 'overflow: auto; height: calc(100% - 30px); max-height: 100%;' } }">
           <template #header>
             <div class="flex flex-wrap items-center justify-between gap-2">
