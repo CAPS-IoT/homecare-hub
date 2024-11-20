@@ -3,7 +3,9 @@
     <NuxtLayout name="table">
       <template #mainContent>
         <div>
-          <PrimeDataTable v-model:expandedRows="expandedRows" :value="infos" dataKey="name">
+          <PrimeDataTable v-model:expandedRows="expandedRows" scrollable scrollHeight="100%" :value="infos"
+            dataKey="name"
+            :pt="{ root: { style: 'overflow: hidden; height: 100%; max-height: 100%;' }, tableContainer: { style: 'overflow: auto; height: calc(100% - 30px); max-height: 100%;' } }">
             <template #header>
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <span class="text-xl font-bold">Latest SIF Status</span>
