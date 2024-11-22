@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: homecare-hub
+  name: <website-component-name>
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: homecare-hub
+      app: <website-component-name>
   template:
     metadata:
       labels:
-        app: homecare-hub
+        app: <website-component-name>
     spec:
       imagePullSecrets:
         - name: <secret>
       containers:
-        - name: homecare-hub
+        - name: <website-component-name>
           image: <image-name>:<tag>
           imagePullPolicy: "Always"
           ports:
             - containerPort: 3000
           envFrom:
             - configMapRef:
-                name: homecare-hub-configmap
+                name: <website-component-name>-configmap
