@@ -2,6 +2,7 @@
   "name": "website-template",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "description": "The website to display the state of the senior",
   "main": "index.js",
   "scripts": {
