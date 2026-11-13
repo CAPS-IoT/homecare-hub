@@ -18,7 +18,6 @@ COPY --from=deps /app/node_modules /app/node_modules
 COPY --from=build-step /app/dist /app/dist
 COPY --from=build-step /app/.output /app/.output
 
-ENV PORTAL_BACKEND_INFRA="https://cloud.caps-platform.de"
 EXPOSE 3000
 
 CMD [ "pnpm", "start" ]
