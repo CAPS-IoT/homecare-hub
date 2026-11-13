@@ -2,6 +2,15 @@
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## Deploying the Homecare Hub
+
+Once you have added your changes to this website, build an image and push it to
+the registry. With the files inside `k8s`, run them in your Raspberry Pi to create
+the necessary resources. 
+
+> Ensure the viz-component is running before creating the Senior Homecare Hub
+> Make sure to set the right value for `VIZ_REMOTE` in the `.env` file.
+
 ## Installation for Local Development
 
 Make sure to install the dependencies:
@@ -72,10 +81,4 @@ yarn preview
 bun run preview
 ```
 
-## Deploying the Homecare Hub
 
-Once you have added your changes to this website, build an image and push it to
-the registry. With the files inside `k8s`, run them in your Raspberry Pi to create
-the necessary resources. 
-
-> Ensure the viz-component is running before creating the Senior Homecare Hub
